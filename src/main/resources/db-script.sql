@@ -22,3 +22,4 @@ CREATE TABLE items(
                       CONSTRAINT order_id_fk FOREIGN KEY (order_id) REFERENCES order_table(order_id)
 
 );
+
