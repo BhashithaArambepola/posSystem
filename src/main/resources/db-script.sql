@@ -11,6 +11,7 @@ CREATE TABLE order_table
     order_id      INT AUTO_INCREMENT PRIMARY KEY,
     cusId VARCHAR(20) NOT NULL ,
     order_details VARCHAR(100) NOT NULL,
+
     CONSTRAINT nic_fk FOREIGN KEY (cusId) REFERENCES customer(id)
 );
 
@@ -22,4 +23,5 @@ CREATE TABLE items(
                       CONSTRAINT order_id_fk FOREIGN KEY (order_id) REFERENCES order_table(order_id)
 
 );
-
+alter table order_table
+    add date DATE NOT NULL ;

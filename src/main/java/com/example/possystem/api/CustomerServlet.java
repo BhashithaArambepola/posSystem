@@ -4,14 +4,17 @@ import com.example.possystem.dto.CustomerDTO;
 import jakarta.json.bind.Jsonb;
 import jakarta.json.bind.JsonbBuilder;
 
+import javax.annotation.Resource;
 import javax.servlet.*;
 import javax.servlet.http.*;
 import javax.servlet.annotation.*;
+import javax.sql.DataSource;
 import java.io.IOException;
 
 @WebServlet(name = "CustomerServlet", value = {"/CustomerServlets","/CustomerServlets/"})
 public class CustomerServlet extends HttpServlet {
-
+    @Resource(name = "java:comp/env/jdbc/pool4posSystem")
+    private volatile DataSource pool;
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         System.out.println("working..");
